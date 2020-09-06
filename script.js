@@ -24,4 +24,7 @@ window.onload = function() {
             end: "top 20%"
         })
     })
+
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene);
 }
