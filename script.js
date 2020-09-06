@@ -1,4 +1,10 @@
 window.onload = function() {
+    let text = document.getElementById('text');
+    window.addEventListener('scroll', function() {
+        let value = window.scrollY;
+        text.style.marginBottom = value * 1.25 + 'px';
+    })
+
     $('#scratch').wScratchPad({
         size        : 100,                      // The size of the brush/scratch.
         bg          : 'images/background.png',  // Background (image path or hex color).
