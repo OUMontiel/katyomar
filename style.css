@@ -5,21 +5,12 @@
     box-sizing: border-box;
 }
 
-.box-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #000;
-}
-
-.box span img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate3d 20s linear infinite;
 }
 
 .box span {
@@ -33,12 +24,30 @@
     transform: rotateX(calc(var(--i) * 45deg)) translateZ(300px);
 }
 
-.box {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    transform-style: preserve-3d;
-    animation: animate 20s linear infinite;
+.box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+
+.bubbles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -70px;
 }
 
 .bubbles img {
@@ -78,25 +87,6 @@
     width: 35px;
 }
 
-.bubbles {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: absolute;
-    bottom: -70px;
-}
-
-button {
-    color: #fbfcfd;
-    padding: 10px 25px;
-    background: transparent;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    outline: none;
-    cursor: pointer;
-}
-
 .content {
     color: #fbfcfd;
     position: absolute;
@@ -112,7 +102,7 @@ h1 {
     line-height: 80px;
 }
 
-.hero {
+.header {
     width: 100%;
     height: 100vh;
     background-image: url(images/background.png);
@@ -122,65 +112,102 @@ h1 {
     overflow: hidden;
 }
 
-.logo {
-    width: 100px;
-    cursor: pointer;
-}
-
-.menu {
-    display: block;
-    width: 25px;
-    margin: 40px auto 0;
-    cursor: pointer;
-}
-
-.navbar {
-    width: 85%;
-    height: 15%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.side-bar {
-    width: 50px;
-    height: 100vh;
-    background: linear-gradient(#00545d, #000729);
+.header .clouds {
     position: absolute;
-    right: 0;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.social-links {
-    width: 50px;
-    text-align: center;
+.header .clouds img {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 0;
+    max-width: 100%;
+    animation: cloud calc(8s * var(--i)) linear infinite;
 }
 
-.social-links img, .useful-links img {
-    width: 25px;
-    margin: 5px auto;
-    cursor: pointer;
+.reveal {
+    position: relative;
+    color: #fff;
+    font-size: 2.5em;
+    padding: 0 10px;
+    font-weight: 500;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.5s;
+    transition-delay: 0.5s;
 }
 
-.useful-links {
-    width: 50px;
-    text-align: center;
+.reveal:nth-child(2) {
+    font-weight: 300;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.reveal.active {
+    transform: scaleX(1);
+    transition-delay: 0s;
+}
+
+.reveal:before {
+    content: '';
     position: absolute;
-    bottom: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e02bff;
+    transform-origin: right;
+    transition: 0.5s;
+    transition-delay: 0s;
 }
 
-@keyframes animate {
-    0% {
-        transform: perspective(1000px) rotateX(0deg) rotateY(35deg);
-    }
+.reveal:nth-child(2):before {
+    background: #ffeb3b;
+}
 
-    0% {
-        transform: perspective(1000px) rotateX(360deg) rotateY(35deg);
-    }
+.reveal.active:before {
+    transform: scaleX(0);
+    transition-delay: 0.5s;
+}
+
+.reveal-box {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reveal-box img {
+    position: relative;
+    left: -100px;
+    display: block;
+    margin-left: 10px;
+    margin-top: 20px;
+    max-width: 300px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.reveal-box img.active {
+    left: 0;
+    opacity: 1;
+}
+
+.reveal-container {
+    background: #061c2d;
+}
+
+#scratch {
+    position: relative;
+    width: 100%;
+    height: 100vh;
 }
 
 @keyframes bubble {
@@ -200,5 +227,24 @@ h1 {
     100% {
         transform: translateY(-80vh);
         opacity: 0;
+    }
+}
+
+@keyframes cloud {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes rotate3d {
+    0% {
+        transform: perspective(1000px) rotateX(0deg) rotateY(35deg);
+    }
+
+    0% {
+        transform: perspective(1000px) rotateX(360deg) rotateY(35deg);
     }
 }

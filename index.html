@@ -7,34 +7,15 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="style.css">
-
-        <!-- JavaScript -->
-        <script src="script.js"></script>
         
         <title>K&O</title>
     </head>
     <body>
-        <div class="hero">
-            <div class="navbar">
-                <img src="images/logo.png" class="logo">
-                <button type="button">Sign Up</button>
-            </div>
+        <div class="header">
             <div class="content">
                 <small>Welcome to our</small>
                 <h1>World's<br>Creative Studio</h1>
                 <button type="button">Take a tour</button>
-            </div>
-            <div class="side-bar">
-                <img src="images/menu.png" class="menu">
-                <div class="social-links">
-                    <img src="images/fb.png">
-                    <img src="images/ig.png">
-                    <img src="images/tw.png">
-                </div>
-                <div class="useful-links">
-                    <img src="images/share.png">
-                    <img src="images/info.png">
-                </div>
             </div>
             <div class="bubbles">
                 <img src="images/bubble.png">
@@ -44,6 +25,13 @@
                 <img src="images/bubble.png">
                 <img src="images/bubble.png">
                 <img src="images/bubble.png">
+            </div>
+            <div class="clouds">
+                <img src="images/cloud1.png" style="--i:1">
+                <img src="images/cloud2.png" style="--i:2">
+                <img src="images/cloud3.png" style="--i:3">
+                <img src="images/cloud4.png" style="--i:4">
+                <img src="images/cloud5.png" style="--i:5">
             </div>
         </div>
         <div class="box-container">
@@ -58,5 +46,36 @@
                 <span style="--i:8;"><img src="images/background.png"></span>
             </div>
         </div>
+        <div id="scratch"></div>
+        <div class="reveal-container">
+            <div class="reveal-box">
+                <div>
+                    <h2 class="reveal">Sample title</h2>
+                    <h2 class="reveal">Sample text</h2>
+                    <img src="images/background.png">
+                </div>
+            </div>
+            <div class="reveal-box">
+                <div>
+                    <h2 class="reveal">Sample title</h2>
+                    <h2 class="reveal">Sample text</h2>
+                    <img src="images/background.png">
+                </div>
+            </div>
+            <div class="reveal-box">
+                <div>
+                    <h2 class="reveal">Sample title</h2>
+                    <h2 class="reveal">Sample text</h2>
+                    <img src="images/background.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+        <script src="wScratchPad.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
     </body>
 </html>
