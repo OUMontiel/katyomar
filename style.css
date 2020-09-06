@@ -1,0 +1,462 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.bubbles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -70px;
+}
+
+.bubbles img {
+    width: 50px;
+    animation: bubble 7s linear infinite;
+}
+
+.bubbles img:nth-child(1) {
+    animation-delay: -2s;
+    width: 25px;
+}
+
+.bubbles img:nth-child(2) {
+    animation-delay: -1s;
+}
+
+.bubbles img:nth-child(3) {
+    animation-delay: -3s;
+    width: 25px;
+}
+
+.bubbles img:nth-child(4) {
+    animation-delay: -4.5s;
+}
+
+.bubbles img:nth-child(5) {
+    animation-delay: -3s;
+}
+
+.bubbles img:nth-child(6) {
+    animation-delay: -6s;
+    width: 20px;
+}
+
+.bubbles img:nth-child(7) {
+    animation-delay: -7s;
+    width: 35px;
+}
+
+.cube {
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+}
+
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(25deg) translate3D(-75px, -50px, 150px);
+}
+
+.cube div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ccc;
+}
+
+.cube div span:nth-child(1) {
+    transform: rotateX(0deg) translate3d(0, 0, 200px);
+}
+
+.cube div span:nth-child(2) {
+    transform: rotateY(90deg) translate3d(0, 0, -200px);
+}
+
+.cube div span:nth-child(2) video {
+    transform: rotateY(180deg);
+}
+
+.cube div span:nth-child(3) {
+    transform: rotateX(90deg) translate3d(0, 0, 200px);
+}
+
+.cube div span video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0px);
+}
+
+.cube-container {
+    background: #000;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.cube-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(20px);
+}
+
+h1 {
+    font-size: 80px;
+    margin: 10px 0 30px;
+    line-height: 80px;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.header .clouds img {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: cloud calc(8s * var(--i)) linear infinite;
+}
+
+.header-content {
+    color: #fbfcfd;
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.hover-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hover-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1000px;
+    transform-style: preserve-3d;
+}
+
+.hover-container .hover {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px 0;
+    perspective: 1000px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.hover-container .hover .hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    transform: rotateX(90deg);
+    opacity: 0;
+    color: #fff;
+}
+
+.hover-container .hover:hover .hover-content {
+    transform: rotateX(0deg);
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.hover-container .hover .hover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.hover-container .hover:hover .hover-image {
+    transform: rotateX(-90deg);
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.hover-container .hover .hover-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mixBlnd {
+	background-blend-mode: screen;
+}
+
+.parallax-body {
+    margin: 0;
+	padding: 0;
+}
+
+.parallax-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url(images/parallax-background.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.parallax-container img {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.reveal {
+    position: relative;
+    color: #fff;
+    font-size: 2.5em;
+    padding: 0 10px;
+    font-weight: 500;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.reveal:nth-child(2) {
+    font-weight: 300;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.reveal.active {
+    transform: scaleX(1);
+    transition-delay: 0s;
+}
+
+.reveal:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e02bff;
+    transform-origin: right;
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+
+.reveal:nth-child(2):before {
+    background: #ffeb3b;
+}
+
+.reveal.active:before {
+    transform: scaleX(0);
+    transition-delay: 0.5s;
+}
+
+.reveal-box {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reveal-box img {
+    position: relative;
+    left: -100px;
+    display: block;
+    margin-left: 10px;
+    margin-top: 20px;
+    max-width: 300px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.reveal-box img.active {
+    left: 0;
+    opacity: 1;
+}
+
+.reveal-container {
+    background: #061c2d;
+}
+
+.rotate-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate3d 20s linear infinite;
+}
+
+.rotate-box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateX(calc(var(--i) * 45deg)) translateZ(300px);
+}
+
+.rotate-box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rotate-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+
+#scratch {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-banner h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    font-size: 30vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    line-height: 100vh;
+    mix-blend-mode: screen;
+}
+
+.video-banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+@keyframes cloud {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes rotate3d {
+    0% {
+        transform: perspective(1000px) rotateX(0deg) rotateY(35deg);
+    }
+
+    0% {
+        transform: perspective(1000px) rotateX(360deg) rotateY(35deg);
+    }
+}
