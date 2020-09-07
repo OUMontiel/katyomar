@@ -6,9 +6,9 @@ window.onload = function() {
     })
 
     $('#scratch').wScratchPad({
-        size        : 100,                      // The size of the brush/scratch.
-        bg          : 'images/background.png',  // Background (image path or hex color).
-        fg          : '#000'                    // Foreground (image path or hex color).
+        size: 100,
+        bg: 'images/image8.jpg',
+        fg: 'images/scratch.png'
     });
 
     const reveal = gsap.utils.toArray('.reveal');
